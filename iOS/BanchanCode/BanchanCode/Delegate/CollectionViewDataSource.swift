@@ -30,7 +30,8 @@ class CollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let sectionHeaderTitle = SectionHeaderTitle()
         
         headerView.sectionTitleLabel.text = sectionHeaderTitle.setTitle(by: indexPath.section)
-//        headerView.countOfMenus = //numberOfSections(in: collectionView)
+        //이 부분은 후에 동적으로 받아오는 만큼 갯수를 저장하는 형태로 바꾸어주어야할듯.
+        headerView.countOfMenus = CollectionViewConstant.numberOfItems
         
         return headerView
     }
