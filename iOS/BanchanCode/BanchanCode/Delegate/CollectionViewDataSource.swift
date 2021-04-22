@@ -9,6 +9,7 @@ import UIKit
 
 class CollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return CollectionViewConstant.numberOfSections
     }
@@ -24,8 +25,15 @@ class CollectionViewDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.identifier, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.identifier, for: indexPath) as! SectionHeaderView
+        
+        let sectionHeaderTitle = SectionHeaderTitle()
+        
+        headerView.sectionTitleLabel.text = sectionHeaderTitle.setTitle(by: indexPath.section)
+//        headerView.countOfMenus = //numberOfSections(in: collectionView)
         
         return headerView
     }
+    
+    
 }
